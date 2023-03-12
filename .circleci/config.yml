@@ -10,7 +10,11 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - print_pipeline_id
+      - print_pipeline_is
+      - run:
+          name: Return 1
+          command: return 1
+          when: on_fail
 workflows:
   my_workflow:
     jobs:
