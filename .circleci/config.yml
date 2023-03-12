@@ -1,5 +1,14 @@
 version: 2.1
 jobs:
+  build:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - run:
+          name: "Echo the owner of this pipeline"
+          command: |
+            echo $ENV_OWNER
   print_hello:
     docker:
       - image: circleci/node:13.8.0
